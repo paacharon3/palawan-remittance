@@ -1,0 +1,28 @@
+{
+    "/cliqqapiauth": {
+        "target": {
+            "host" : "apidemo.cliqq.net",
+            "protocol" : "https:",
+            "port": "8443"
+        },
+        "secure": false,
+        "pathRewrite": {
+            "^/cliqqapiauth": ""
+          },
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/remittanceapi": {
+        "target": {
+            "host" : "apidemo.cliqq.net",
+            "protocol" : "https:",
+            "port" : "8443"
+        },
+        "secure": false,
+        "pathRewrite": {
+            "^/remittanceapi": ""
+        },
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
