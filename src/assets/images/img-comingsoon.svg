@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="323" height="97" viewBox="0 0 323 97">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FAFAFA" d="M0 0h323v97H0z" opacity=".85"/>
+        <text fill="#F60" font-family="RobotoCondensed-Bold, Roboto Condensed" font-size="30" font-style="condensed" font-weight="bold" letter-spacing="2.5">
+            <tspan x="104.001" y="34">COMING </tspan> <tspan x="122.109" y="69">SOON</tspan> <tspan x="202.891" y="69" letter-spacing="-1.503"> </tspan>
+        </text>
+    </g>
+</svg>
