@@ -1,0 +1,45 @@
+<div class="card" 
+    [class.selected]="selected">
+    <div *ngIf="!imgOnly; else imgOnlyCard">
+        <div class="row">
+            <div class="col-7">
+                <img 
+                    *ngIf="cashInCenter"
+                    src="{{ cashInCenter.imgSrc }}" 
+                    class="img-thumbnail" 
+                    alt="{{ cashInCenter.id }}" 
+                    srcset=" {{ cashInCenter.imgSet ? cashInCenter.imgSet : '' }}" 
+                    style="width:100%;height:100%"
+                />
+            </div>
+            <div class="col-5 pl-0">
+                <span class="SERVICE-FEE">
+                    Service Fee
+                </span>
+                <p class="layer" style="margin-bottom:0" *ngIf="cashInCenter.serviceFee; else placeholder">
+                    &#8369; {{  + cashInCenter.serviceFee | number:'.2-2' }}
+                </p>
+                <ng-template #placeholder>
+                    <br/>
+                    <small class="text-muted">Getting Fee...</small>
+                </ng-template>
+                
+            </div>
+        </div>
+    </div>
+    <ng-template #imgOnlyCard>
+        <div class="row">
+            <div class="col">
+                <div class="text-center"
+                    [class.comingSoon]="comingSoon">
+                    <img src="{{ cashInCenter.imgSrc }}" class="img-thumbnail img-fluid" alt="{{ cashInCenter.id }}" />
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<div *ngIf="!imgOnly">
+    <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">
+</div>
+
+
