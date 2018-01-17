@@ -4,5 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  getRemittanceCentersAPI: 'remittanceapi/remittance/v1/quick/remcos',
+  authAPI: 'cliqqapiauth/accounts/oauth2/token',
+  getServiceFeeAPI: 'remittanceapi/remittance/v1/quick/fees',
+  sendMoneyAPI: 'remittanceapi/remittance/v1/quick/transfers',
+  maxTransactionAmount: 2500.00
 };

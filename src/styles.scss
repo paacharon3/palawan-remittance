@@ -1,0 +1,9 @@
+.app-loading
+    .logo {
+      width: 200px;
+      height: 60px;
+      
+      // this way asset gets processed by webpack 
+      background: url(./assets/images/img-sevenelevenlogo@2x.png) center center no-repeat; 
+      
+  }
