@@ -1,0 +1,169 @@
+<form #transactionConfirmationForm="ngForm" class="editForm" novalidate>
+    <div class="horizontal">
+        <div class="row align-items-center" >
+                <div class="col">
+                    <cliqq-header loc="transactionDetail" ></cliqq-header>                    
+                </div>
+                <div class="col-7">
+                    <h4 class="SEND-MONEY">{{title}}</h4>                        
+                
+                </div>
+                <div class="col">
+                                            
+                    
+                </div>
+        </div>
+        <!-- <div class="row">
+            
+            <div class="col text-center" >
+                <h4 class="SEND-MONEY">{{title}}</h4>                        
+            </div>  
+            
+        </div>       -->
+        <div class="row">
+            <div class="col text-center INSTRUCTIONS">
+                {{ instructionText }}                
+            </div>
+        </div>
+        <div class="row space-20">
+            <div class='col-10' style="margin-left:0px">
+                <p class="FROM">SENDER</p>            
+            </div>
+        </div>
+        <fieldset class="Border" style="pointer-events: none">
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <p class="transaction-details-confirm-text">
+                        {{ transaction.senderFirstName + ' ' + transaction.senderLastName}}
+                    </p>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <p class="transaction-details-confirm-text">
+                        {{ transaction.senderContact }}
+                    </p>        
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="" style="width:100%">
+            <div class="pull-right">
+                <img src="/assets/images/img-sendarrow.png"
+                        srcset="/assets/images/img-sendarrow@2x.png 2x,
+                        /assets/images/img-sendarrow@3x.png 3x"
+                        class="img_sendarrow">
+            </div>
+    
+        </div>
+
+        <div class="row space-20">
+            <div class='col-10' style="margin-left:0px">
+                <p class="FROM">RECEIVER</p>            
+            </div>
+        </div>
+    
+        <fieldset class="Border" style="pointer-events: none">
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <p class="transaction-details-confirm-text">
+                        {{ transaction.receiverFirstName + ' ' + transaction.receiverLastName}}
+                    </p>        
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <p class="transaction-details-confirm-text">
+                            {{ transaction.receiverContact ? transaction.receiverContact : '' }}                
+                    </p>
+                </div>
+                
+            </div>
+        </fieldset> 
+        <hr class="orange-divider">
+        <div class="transparent-border">
+        <!-- <div class="orange-border-slim"> -->
+            <div class="row align-items-center justify-content-start">
+                <div class="col-7 pr-0">
+                    <p class="confirmation-text">Transaction Amount</p>
+                </div>
+                <div class="col-3">
+                    <p class="layer-20"> &#8369;{{ transaction.amount | number:'.2-2' }} </p>
+                </div>
+    
+            </div>
+
+        <!-- </div> -->
+        
+
+            <div class="row align-items-center">
+                <div class="col-7 pr-0">
+                    <p class="confirmation-text">Convenience Fee</p>
+                </div>
+                <div class="col-3">
+                    <p class="layer-20">  &#8369;{{ transaction.serviceFee | number:'.2-2' }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="orange-border">
+            <!-- <div class="col-xs-offset-3"> -->
+                <div class="row align-items-center">
+                        <div class="col-7 pr-0">
+                            <p class="confirmation-text">TOTAL AMOUNT&#58; </p>
+                        </div>
+                        <div class="col-3">
+                            <p class="layer-20-bold"> &#8369;{{ (transaction.amount + transaction.serviceFee) | number:'.2-2'}} </p>
+                        </div>
+            
+                </div>
+                <!-- <div class="text-center" style="padding:12px auto">
+                    <div class="transaction-amount">
+                        <div class="padded-updown">
+                            <span 
+                                class="Total-Amount">
+                                TOTAL AMOUNT: 
+                            </span>                   
+                            <span class="layer">
+                                &#8369;{{ (transaction.amount + transaction.serviceFee) | number:'.2-2'}}
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-xs-6"> -->
+                        
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+        
+        <div class="form-group text-center space-20">
+            <!-- <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(transactionConfirmationForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button> -->
+            <!-- button width:50%; -->
+            <div class="row justify-content-around">
+                <div class="col-6">
+                    <button style="background-color: Transparent; border:0;max-width:100%" 
+                        (click)="goToPrevious(transactionConfirmationForm)"
+                        type="button">
+                        <img src="/assets/images/btn-edit.png"
+                             srcset="/assets/images/btn-edit@2x.png 2x,
+                                    /assets/images/btn-edit@3x.png 3x">
+                    </button>
+                    <div class="CONFIRM-TEXT">Edit</div>
+                </div>
+                <div class="col-6">
+                    <button style="background-color: Transparent; border:0;max-width:100%" 
+                    (click)="goToNext(transactionConfirmationForm)"
+                    type="button">
+                    <img src="../assets/images/btn-send.png"
+                         srcset="/assets/images/btn-send@2x.png 2x,
+                                /assets/images/btn-send@3x.png 3x">
+                    </button>
+                    <div class="CONFIRM-TEXT">Confirm</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

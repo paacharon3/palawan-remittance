@@ -1,0 +1,115 @@
+<form [formGroup]="transactionAmountForm">
+    <!-- #transactionAmountForm="ngForm" -->
+    <div class="row align-items-center" >
+        <div class="col align-self-start">
+            <cliqq-header loc="sendMoney" ></cliqq-header>                    
+        </div>
+        <div class="col-7">
+            <h4 class="SEND-MONEY">{{title}}</h4>                        
+        
+        </div>
+        <div class="col">
+                                    
+            
+        </div>
+            <!-- style="border-style:none none dashed none" -->
+    </div>
+    <!-- <div class="row">
+        <div class="col-xs-12 col-sm-12 text-center" >
+            <h4 class="SEND-MONEY">{{title}}</h4>                        
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 text-center INSTRUCTIONS">
+            {{ instructionText }}                
+        </div>
+    </div>
+    <div class="row" style="padding:2em 0em 2em">
+        <div class='col-xs-12 col-sm-12 text-center'>
+            <div class="slightly-large">
+                <label class="control-label" for="amount"> Enter Amount</label>                
+            </div>
+            <!-- (keyup)="!transactionAmountForm.valid ? '' : goToCashInCenterForm(transactionAmountForm)" -->
+            <!-- pattern="^\d*(\.\d{2}$)?" -->
+        </div>
+        <div class='col-xs-12 col-sm-12'>
+            <div class="form-group">
+                <div class="row align-items-center Rectangle">
+                    
+                    <label for="amount" style="padding-top:9px" class="col-2">
+                            <img src="/assets/images/ic-plus.png"
+                                srcset="/assets/images/ic-plus@2x.png 2x,
+                                        /assets/images/ic-plus@3x.png 3x"
+                                class="ic_plus"
+                                >
+                        
+                    </label>
+                    <span id="amount" class="col-2" style="padding-left:0.5rem">
+                        &#8369;
+                    </span>
+                    <input class="form-control input-md col-8" 
+                        type="tel" 
+                        required 
+                        id="amount" 
+                        name="amount"
+                        formControlName="amount"
+                        name="amount" 
+                        placeholder="0.00"
+                        inputmode="numeric"
+                        step="0.1"
+                        style="border:0"
+                        >
+                </div>
+
+                <div class="alert alert-danger" *ngIf="amount.invalid && amount.touched" style="margin:0 1rem 0 1rem">
+                    <!-- {{ amount.errors | json }} -->
+                    <div *ngIf="amount.errors.invalidInput || amount.errors.min">
+                            Please enter a valid amount
+                    </div>
+                    <div *ngIf="amount.errors.cannotContainSpace">
+                        Amount Cannot have spaces
+                    </div>
+                    <div *ngIf="amount.errors.maxAmountExceeded || amount.errors.max">
+                        Amount must be 2500 or below
+                    </div>
+                </div>
+                
+            </div>
+            <!-- pattern="[0-9.]*" -->
+            
+            <!-- pattern="[0-9.]*" -->
+        </div>
+    </div>
+    <div class="row"
+    style="padding-left: 4em">
+        <p class="header-text"></p>    
+    </div>
+    <!-- <div class="row text-center">
+        <span class="INSTRUCTIONS">
+            {{ instructionText2 }}
+        </span>
+    </div> -->
+    <div class="row">
+            <div class="col-xs-12 col-sm-12 text-center INSTRUCTIONS">
+                {{ instructionText2 }}              
+            </div>
+        </div>
+    <hr class="orange-divider">
+    <div class="form-group text-center">
+        <!-- <button class="btn btn-outline-rounded btn-warning" [disabled]="!transactionAmountForm.valid" (click)="goToCashInCenterForm(transactionAmountForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button> -->
+        <button style="background-color: Transparent; border:0;" 
+            [disabled]="!transactionAmountForm.valid && !transaction.amount" 
+            (click)="goToCashInCenterForm(transactionAmountForm)"
+            type="button">
+            <img [src]="!transactionAmountForm.valid && !transaction.amount? 
+                '/assets/images/btn-confirmunengaged.png' : 
+                '/assets/images/btn-confirmengaged.png'"
+                
+                [srcset]="!transactionAmountForm.valid && !transaction.amount?
+                '/assets/images/btn-confirmunengaged@2x.png 2x,/assets/images/btn-confirmunengaged@3x.png 3x' :
+                '/assets/images/btn-confirmengaged@2x.png 2x,/assets/images/btn-confirmengaged@3x.png 3x'
+                ">
+        </button>
+        <div class="CONFIRM-TEXT">Confirm</div>
+    </div>
+</form>

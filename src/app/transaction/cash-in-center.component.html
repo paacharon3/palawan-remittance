@@ -1,0 +1,157 @@
+<form #cashInForm="ngForm" novalidate (keydown.enter)="$event.preventDefault()">
+    <div class="form-horizontal">
+        <div class="row align-items-center" >
+            <div class="col">
+                <cliqq-header loc="sendMoney" ></cliqq-header>                    
+            </div>
+            <div class="col-7">
+                <h4 class="SEND-MONEY">{{title}}</h4>                        
+            
+            </div>
+            <div class="col">
+                                     
+                
+            </div>
+                <!-- style="border-style:none none dashed none" -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 text-center INSTRUCTIONS">
+                {{ instructionText }}                
+            </div>
+        </div>
+        <div class="row" style="padding-top:2rem;">
+            <div class='col-xs-12 col-sm-12 text-center'>
+                <div class="slightly-large">
+                    <label class="control-label" for="amount"> Enter Amount</label>                
+                </div>
+            </div>
+            <div class='col-xs-12 col-sm-12'>
+                <div class="form-group">
+                    <div class="row Rectangle">
+                        <span id="amount" class="col-2 align-self-end">
+                            &#8369;
+                        </span>
+                        <input 
+                            class="form-control-plaintext col-10 align-self-start" 
+                            type="tel"
+                            step="1" 
+                            #amount="ngModel" 
+                            required 
+                            id="amount" 
+                            name="amount" 
+                            placeholder="0.00" 
+                            maxlength="4"
+                            [(ngModel)]="transaction.amount"
+                            value="{{ transaction.amount }}"
+                            (blur)="amount.valid ? recomputeServiceFeeAll(transaction.amount) : ''"
+                            (keyup.enter)="amount.valid ? recomputeServiceFeeAll(transaction.amount) : ''"
+                            style="border: 0;"
+                            inputmode="tel"
+                            pattern="[0-9.]*"
+                            amountValidator="2500"
+                            >
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!amount.valid && amount.touched" style="margin:0 1rem 0 1rem">
+                        {{ amount.errors | json }}
+                        
+                        Amount must be less than 2500
+                    </div>
+                </div>
+                <!-- <div class="alert alert-danger" 
+                    *ngIf="amount.errors?.contactValidator">
+                    Amount cannot be more than 5000
+                </div> -->
+            </div>
+                <!-- <div class='col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10'> -->
+                    <!-- <div class="slightly-large orange centered">
+                        <label class="control-label" for="amount">Input Amount</label>                
+                    </div> -->
+                    <!-- <input 
+                        class="form-control input-md transaction-amount" 
+                        type="number" min="1" max="5000" 
+                        ngMin=">=0" ngMax="5000" 
+                        step="0.01" 
+                        #transactionAmount="ngModel" 
+                        required 
+                        id="transactionAmount" 
+                        name="transactionAmount" 
+                        placeholder="0.00" 
+                        [(ngModel)]="transaction.amount"
+                        value="{{transaction.amount}}"
+                        (blur)="recomputeServiceFeeAll(transaction.amount)"
+                        (keyup.enter)="recomputeServiceFeeAll(transaction.amount)"> -->
+                    <!-- <div class="alert alert-danger" [hidden]="transactionAmount.valid">First Name is required</div> -->
+                <!-- </div> -->
+        </div>
+    </div>
+
+    <div class="row" style="padding-left:2em">
+        <p class="Send-Money-via">
+            Send Money Via
+        </p>
+    </div>
+    <hr class="orange-divider" style="margin-top:-0.5em;margin-bottom:0.2em">
+    
+    <div style="padding:0.0em 1em;margin: 0 0 1.5em">
+        <remittance-center [cashInCenter]="sevenElevenCashIn" [imgOnly]="true">
+        </remittance-center>
+    </div>
+
+
+    <div class="row"
+         style="padding-left: 2em">
+         <p class="Send-Money-via">Receive Money Via</p>    
+    </div>
+    <hr class="orange-divider" style="margin-top:-0.5em;margin-bottom:0.2em">
+    
+    <!-- <div class="form-horizonal"> -->
+        <!-- [class.selected]="center === selectedCashInCenter" -->
+            <!-- [selected]="center === selectedCashInCenter ? true : false" -->
+             
+    <div *ngFor="let center of cashInCenters;"
+        (click)="onSelectCashInCenter(center)" 
+        style="padding:0.25em 1em"
+        (disabled)="center.serviceFee == null"
+        required>
+        <input type="radio" name="cashIncenter" id="cashInCenter" style="display: none" [(ngModel)]="selectedCashInCenter" required>
+        <remittance-center [comingSoon]="!center.isAvailable ? true : false" [imgOnly]="center.serviceFee == null || !center.isAvailable ? true : false" [selected]="center === selectedCashInCenter ? true : false" [cashInCenter]="center" ></remittance-center>
+    </div>
+
+        <!-- </ul> -->
+        <!-- <span>{{center.storeName}} | </span>
+        <span>Service Fee: {{center.serviceFee}}</span> -->
+        <!-- <input *ngFor="let center of cashInCenters;" type="radio" required>
+            <remittance-center [cashInCenter]="center" (click)="onSelectCashInCenter(center)"></remittance-center>        -->
+            
+                
+    <!-- <hr style="color: #ff6600" style="width:85%"/> -->
+    
+        <!-- <mat-card *ngFor="let center of cashInCenterse;let i = index">
+            <mat-card-title>{{center.storeName}}</mat-card-title>
+            <mat-card-content>Service Fee: {{ center.serviceFee }}</mat-card-content>
+
+        </mat-card> -->
+    <!-- </div> -->
+    <div class="form-group text-center">
+        <!-- <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(cashInForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button> -->
+        <!-- class="btn btn-outline-rounded btn-warning" -->
+        <button 
+            style="background-color: Transparent; border:none;"
+            [disabled]="!cashInForm.valid || !selectedCashInCenter || !selectedCashInCenter.serviceFee" 
+            (click)="goToNext(cashInForm)"
+            type="button">  
+            <img 
+                [src]="!cashInForm.valid || !selectedCashInCenter || !selectedCashInCenter.serviceFee ? '../assets/images/btn-confirmunengaged.png' : '../assets/images/btn-confirmengaged.png'"            
+                [srcset]="!cashInForm.valid || !selectedCashInCenter || !selectedCashInCenter.serviceFee ? 
+                        '../assets/images/btn-confirmunengaged@2x.png 2x,
+                        ../assets/images/btn-confirmunengaged@3x.png 3x':
+                        '/assets/images/btn-confirmengaged@2x.png 2x,
+                        /assets/images/btn-confirmengaged@3x.png 3x'">
+                <!-- Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span> -->
+            <div class="CONFIRM-TEXT">Confirm</div>
+        </button>
+    </div>
+</form>
+
+<!-- <pre>{{ selectedCashInCenter | json }}</pre> -->
+

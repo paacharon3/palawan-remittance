@@ -1,0 +1,180 @@
+
+<div class="editForm">
+    <div class="row">
+        <div class="col text-center" >
+            <h4 class="text-center SEND-MONEY">{{title}}</h4>                        
+                <!-- style="border-style:none none dashed none" -->
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 text-center INSTRUCTIONS">
+            {{ instructionText }}                
+        </div>
+    </div>
+    <hr class="orange-divider-slim">
+    <div class="row no-gutters justify-content-center">           
+        <div class="col-11 Rectangle-Amount">
+            <div class="amount-due text-center">Amount</div>
+            <div class="text-center" id="amount">
+                &#8369; {{ transaction.amount + transaction.serviceFee | number:'.2-2'}}
+            
+            </div>
+        
+        </div>
+    
+    </div>
+
+    <hr class="orange-divider">
+    <!-- Barcode -->
+    <div class="row justify-content-center text-center">
+        <!-- barcode -->
+        <ngx-barcode [bc-width]="1.4" [bc-height]="74" [bc-value]=" !transaction.sevenPayRefNo ?'':transaction.sevenPayRefNo  " 
+        [bc-display-value]="true" 
+        >
+        </ngx-barcode>
+    </div>
+
+    <!-- Trasaction Details -->
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Transaction        
+            </span>
+        </div>
+        <div class="col-5">
+            <span class="receipt-transaction-details">
+                Send money        
+            </span> 
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+                <span class="receipt-transaction-details">
+            Sender's Name
+            </span>
+        </div>
+        <div class="col-5"> 
+                <span class="receipt-transaction-details">
+            {{ transaction.senderFirstName + " " + transaction.senderLastName }}
+                </span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Sender's Mobile
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                {{ transaction.senderContact }}
+            </span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Receiver's Mobile
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                {{ transaction.receiverContact }}
+            </span>    
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Service Fee
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                &#8369; {{ transaction.serviceFee }}
+            </span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Transaction Amount
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                &#8369; {{ transaction.amount | number:'.2-2' }}
+            </span>    
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Total Amount
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                &#8369; {{ transaction.serviceFee + transaction.amount | number:'.2-2' }}
+            </span>    
+        </div>
+    </div>
+   
+    <div class="row justify-content-center">
+        <div class="offset-1 col-5">
+            <span class="receipt-transaction-details">
+                Date of Transaction
+            </span>
+        </div>
+        <div class="col-5"> 
+            <span class="receipt-transaction-details">
+                {{ transaction.transactionDate }}
+            </span>    
+        </div>
+    </div>
+    
+    <div class="row justify-content-between" style="margin-top:45px">
+        <div class="col-7">
+            <div class="valid-until">{{ validUntilText }} </div>
+            <!-- &#35; -->
+        </div>
+        <div class="col-5">
+            <div class="validity-date">{{ validityDate }}</div>
+                
+        </div>
+    </div>
+
+    <hr class="orange-divider" style="margin-top:6px;margin-bottom:0.8em">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <span class="SUMMARY-RECEIVE-MONEY-VIA">
+                Receive Money Via        
+            </span>
+        </div>
+        <div class="col-7">
+            <remittance-center [cashInCenter]="selectedCashInCenter" [imgOnly]="true">
+            </remittance-center>
+        </div>    
+    </div>
+    <div class="row" style="margin-bottom:60px"></div>
+    <!-- <div class="row" style="margin-top:25px;">
+        <div class="col-xs-4 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+            <h4 class="instructions">
+                Instructions (2 Easy Steps)
+            </h4>
+                
+        </div>
+    </div> -->
+    <!-- <div class="row" style="padding-bottom: 20px" >
+            <div class="col-xs-4 col-xs-offset-2 col-sm-6 col-sm-offset-3" style="background-color: #FFF3E0; padding-top:10px; padding-bottom:12.5px" >
+                <p>
+                    ( 1 ) Show Payment Barcode at any 7-Eleven Store            
+                </p>
+                <p>
+                    ( 2 ) Pay amount due to cashier
+                </p>
+                    
+            </div>
+    </div> -->
+</div>

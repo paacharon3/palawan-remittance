@@ -1,0 +1,203 @@
+<form #transactionDetailForm="ngForm" 
+      class="editForm" 
+      novalidate>
+    <div class="form-horizontal">
+        <div class="row align-items-center" >
+            <div class="col">
+                <cliqq-header loc="cashIn" ></cliqq-header>                    
+            </div>
+            <div class="col-7">
+                <h4 class="SEND-MONEY">{{title}}</h4>                        
+            
+            </div>
+            <div class="col">
+                                    
+            </div>
+        </div>
+        <!-- <h4 class="head text-center">{{title}}</h4> -->
+        <!-- <hr style="display:none;"/> -->
+        <!-- <div class="row">
+            <div class="col text-center" >
+                <h4 class="SEND-MONEY">{{title}}</h4>                        
+            </div>  
+            
+        </div>             -->
+        <div class="row">
+            <div class="col text-center INSTRUCTIONS">
+                {{ instructionText }}                
+            </div>
+        </div>
+        <div class="row space-20">
+            <div class='col-10' style="margin-left:0px">
+                <span class="FROM">SENDER</span>            
+            </div>
+        </div>
+        <fieldset class="Border">
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default">
+                            <label class="control-label full-width with-indent" for="senderFirstName" style="width: 100%">Sender's First Name</label>
+                        </span> -->
+                        <input class="form-control orange-bg input-md" type="text" #senderFirstName="ngModel" required name="senderFirstName" id="senderFirstName" [(ngModel)]="transaction.senderFirstName" placeholder="Sender's First Name" maxlength="35"/>
+                        <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">                
+                        <div class="alert alert-danger" *ngIf="senderFirstName.touched && !senderFirstName.valid">Sender First Name is required</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default" >
+                            <label class="control-label full-width with-indent" for="senderLastName">Sender's Last Name</label>
+                        </span> -->
+                        <input class="form-control orange-bg input-md" type="text" #senderLastName="ngModel" required name="senderLastName" id="senderLastName" [(ngModel)]="transaction.senderLastName" maxlength="35" placeholder="Sender's Last Name"/>
+                        <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">                                        
+                        <div class="alert alert-danger" *ngIf="senderLastName.touched && !senderLastName.valid">Sender Last Name is required</div>
+                    </div> 
+                </div>
+            
+            </div>
+    
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default" >
+                            <label class="control-label full-width with-indent" for="senderContact">Sender's Mobile Number</label>
+                        </span> -->
+                        <!-- <div class="input-group"> -->
+                            <!-- <span class="input-group-addon orange-bg">+63</span> -->
+                            <input class="form-control orange-bg input-md" 
+                                    type="tel" 
+                                    pattern="^(\+63|0)\d{10}" 
+                                    #senderContact="ngModel" 
+                                    required 
+                                    name="senderContact" 
+                                    id="senderContact" 
+                                    [(ngModel)]="transaction.senderContact" 
+                                    placeholder="Sender's Mobile #"
+                                    senderContact="senderContact"
+                                    appContactValidator/>
+                            <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">            
+                            <div class="alert alert-danger" *ngIf="senderContact.touched && !senderContact.valid">
+                                <p *ngIf="senderContact.errors?.valueEquals">
+                                    Receiver mobile and Sender mobile cannot be the same
+                                </p>
+                                
+                                <p *ngIf="senderContact.errors?.pattern; else generalError">
+                                    Sender Mobile Number must be valid
+                                </p>
+                                <ng-template #generalError>
+                                    <p>
+                                        Sender Mobile is required
+                                    </p>
+                                </ng-template>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="" style="width:100%">
+            <div class="float-right">
+                <img src="/assets/images/img-sendarrow.png"
+                        srcset="/assets/images/img-sendarrow@2x.png 2x,
+                        /assets/images/img-sendarrow@3x.png 3x"
+                        class="img_sendarrow">
+            </div>
+
+        </div>
+        <div class="row no-gutters space-20" style="margin-left:0.65em">
+            <div class='col-10'>
+                <span class="TO">RECEIVER</span>            
+            </div>
+        </div>
+        <fieldset class="LINE-ITEM-BACKGROUND">
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default">
+                            <label class="control-label full-width with-indent" for="receiverFirstName">Receiver's First Name</label>
+                        </span> -->
+                        <input class="form-control input-md FIELD-BACKGROUND" type="text" #receiverFirstName="ngModel" required name="receiverFirstName" id="receiverFirstName" [(ngModel)]="transaction.receiverFirstName" maxlength="35" placeholder="Receiver's First Name"/>
+                        <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">                                                
+                        <div class="alert alert-danger" *ngIf="receiverFirstName.touched && !receiverFirstName.valid">Receiver's First Name is required</div>
+                    </div>        
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default" >
+                            <label class="control-label full-width with-indent" for="receiverLastName">Receiver's Last Name</label>
+                        </span>      -->
+                        <input class="form-control input-md FIELD-BACKGROUND" type="text" #receiverLastName="ngModel" required name="receiverLastName" id="receiverLastName" [(ngModel)]="transaction.receiverLastName" maxlength="35" placeholder="Receiver's Last Name"/>
+                        <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">                                    
+                        <div class="alert alert-danger" *ngIf="receiverLastName.touched && !receiverLastName.valid">Receiver's Last Name is required</div>                    
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row justify-content-center">
+                <div class='col-11'>
+                    <div class="form-group">
+                        <!-- <span class="label label-default" >
+                            <label class="control-label full-width with-indent" for="receiverContact">Receiver's Mobile Number</label>
+                        </span> -->
+                        <!-- <div class="input-group"> -->
+                            <!-- <span class="input-group-addon">+63</span> -->
+                            <input class="form-control input-md FIELD-BACKGROUND" 
+                                    type="tel" 
+                                    pattern="^(\+63|0)\d{10}" 
+                                    #receiverContact="ngModel" 
+                                    required 
+                                    name="receiverContact" 
+                                    id="receiverContact" 
+                                    [(ngModel)]="transaction.receiverContact" 
+                                    placeholder="Receiver's Mobile #"
+                                    receiverContact="receiverContact"
+                                    appContactValidator/>
+                            <img src="assets/images/title-underline.svg" class="TITLE-UNDERLINE">                    
+                            <div class="alert alert-danger" *ngIf="receiverContact.touched && !receiverContact.valid">
+                                <p *ngIf="receiverContact.errors?.valueEquals">
+                                    Receiver mobile and Sender mobile cannot be the same
+                                </p>
+                                
+                                <p *ngIf="senderContact.errors?.pattern; else generalError">
+                                        Sender Mobile Number must be valid
+                                </p>
+                                <ng-template #generalError>
+                                    <p>
+                                        Sender Mobile is required
+                                    </p>
+                                </ng-template>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        
+
+        <div class="form-group text-center space-20">
+            <!-- <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(transactionDetailForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button> -->
+            
+            <button style="background-color: Transparent; border:none;" 
+                    [disabled]="!transactionDetailForm.valid" 
+                    (click)="goToNext(transactionDetailForm)"
+                    type="button">
+                    <img 
+                        [src]="!transactionDetailForm.valid || !canConfirmButton ? '../assets/images/btn-confirmunengaged.png' : '../assets/images/btn-confirmengaged.png'"
+                        [srcset]="!transactionDetailForm.valid ? '/assets/images/btn-confirmunengaged@2x.png 2x, /assets/images/btn-confirmunengaged@3x.png 3x' :
+                        '/assets/images/btn-confirmengaged@2x.png 2x,
+                        /assets/images/btn-confirmengaged@3x.png 3x'">
+
+            </button>
+            <div class="CONFIRM-TEXT">Confirm</div>
+            <!-- <img [ngClass]="canConfirmButtonClass" [disabled]="!transactionDetailForm.valid" (click)="goToNext(transactionDetailForm)"></img> -->
+            <!-- Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button> -->
+        </div>
+    </div>
+</form>
