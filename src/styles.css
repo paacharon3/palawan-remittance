@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"); */
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css");
+@import "assets/css/riliwan-rabo.css";
+@import "assets/css/style.css";
+@import "assets/css/form.css";
+@import "assets/css/loading-bars.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("//fonts.googleapis.com/css?family=Roboto+Condensed:400,700");
+
+
+/* -------- Adjustment for Width Descrepancy --------- */
+html,body
+{
+    /* width: 100%; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+    /* overflow-x: auto; */
+    font-family: 'Roboto-Condensed', 'sans-serif';
+    font-style: normal;
+    background:#efefe9;
+    margin: 0;
+    padding: 0;
+}

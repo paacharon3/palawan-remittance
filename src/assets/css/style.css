@@ -1,0 +1,591 @@
+.btn-default {
+    border-color: #ccc;
+}
+
+.tab-content .choice {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 38px;
+}
+
+.tab-content .choice i {
+    font-size: 32px;
+    line-height: 55px;
+}
+
+.btn-radio {
+	width: 100%;
+}
+.img-radio {
+	opacity: 0.8;
+	margin-bottom: 5px;
+}
+
+.space-20 {
+    margin-top: 26px;
+}
+
+.iradio_buttons {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: #febe29 no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.iradio_buttons {
+    background-position: -120px 0;
+}
+.iradio_buttons.hover {
+    background-position: -144px 0;
+}
+.iradio_buttons.checked {
+    background-position: -168px 0;
+}
+
+#border-color-orange {
+    /* border-style:solid;
+    border-width:0.5px;
+    border-color: #FFAB2D; */
+    border: solid 1px #ff9900;
+}
+
+.header-cliqq {
+    /* width: 75%; */
+    margin: 10px auto;
+}
+
+.confirm-button {
+    background-image: '../images/btn_confirm_a.png';
+}
+
+.confirm-button-true {
+    background-image: '../images/btn_confirm_b.png';
+}
+
+.orange-bg {
+    height: 40px;
+    background-color: #fff3e0;
+    color: #424242;
+    text-transform: uppercase;
+}
+
+.FIELD-BACKGROUND {
+    height: 40px;
+    background-color: #ffffff;
+    text-transform: uppercase;
+}
+
+.selected {
+    border-width: 2px;
+    border-style: solid;
+    /* border-style: none none ridge none; */
+    
+    border-color: #ff8f44;
+    /* color: #FF6600; */
+    /* #ff8f44 */
+}
+
+.orange-border {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #FF6600;
+    /* color: #FF6600; */
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+}
+
+.orange-border-slim {
+    border: solid 2px #ff6600;
+    min-height: 30px;
+    margin-left:0.8rem;
+    margin-right:0.8rem;
+}
+
+.transparent-border {
+    margin-left:0.8rem;
+    margin-right:0.8rem;
+    border-style: none;
+}
+
+.large-input {
+    line-height: 8em;
+    height: 4em;
+}
+
+.service-fee-amount {
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #424242;
+}
+
+.transaction-amount {
+    /* border-style: solid; */
+    /* border-width: 5px; */
+    /* border-color: #ff8f44; */
+    /* line-height: 8em; */
+    min-height: 60px;
+    /* padding: 10px; */
+}
+
+.amount-due {
+    height: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ff6600;
+}
+
+.board-header{
+    width: 75%;
+    margin: 0px auto;
+    /* height: 500px; */
+    /* height: 65px; */
+    /* background: #fff;  */
+    /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
+}
+
+.header-cliqq-logo {
+    width: 100%;
+    margin: 10px 0px;
+    padding-top:0.5em;
+}
+
+.header-cliqq-back-button{
+    /* margin: 27px 0 0 0; */
+    margin-left: 0.5rem;
+    height: 31px;
+}
+
+.ic_back_header {
+    /* margin-left: 0.5rem; */
+    /* width: 15.9px; */
+    /* height: 28.4px; */
+    object-fit: contain;
+  }
+
+.orange-divider {
+    /* border-style:solid;
+    border-width:1px;
+    border-color:#ff8F00;  */
+    width:98%;
+    /* height: 2px; */
+    border: solid 2px #ff9900;
+}
+
+.orange-divider-slim {
+    /* border-style:solid;
+    border-width:1px;
+    border-color:#ff8F00;  */
+    width:98%;
+    /* height: 1px; */
+    border: solid 1px #ff9900;
+    margin-top:4px;
+    margin-bottom:40px;
+}
+
+.INPUT-AMOUNT {
+    /* width: 154px; */
+    height: 24px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: condensed;
+    letter-spacing: 1.3px;
+    text-align: center;
+    color: #ff6600;
+}
+
+.SEND-MONEY {
+    /* width: 133px; */
+    height: 24px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #424242;
+    text-transform: uppercase;
+}
+
+.INSTRUCTIONS {
+    /* width: 187px; */
+    /* height: 15px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #424242;
+}
+
+.Rectangle {
+    /* width: 251px; */
+    /* max-width: 80%; */
+    min-height: 66px;
+    border: solid 4px #ff6600;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.Rectangle-Amount {
+    /* width: 314px; */
+    min-height: 90px;
+    border: solid 4px #ff6600;
+  }
+
+.ic_plus {
+    /* width: 35px;
+    height: 35px; */
+    object-fit: contain;
+    /* margin-right:0.65em; */
+    /* margin-left:9px; */
+    /* padding-bottom: 5px; */
+  }
+
+.valid-until {
+    height: 15px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 13px;
+    letter-spacing: -0.5px;
+    /* text-align: center; */
+    color: #424242;
+    margin-left: 0.2rem;
+  }
+
+.validity-date {
+    /* width: 165px; */
+    /* height: 18px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #424242;
+}
+
+#amount:focus {
+    outline: none;
+}
+
+#amount {
+    /* width: 212px; */
+    min-height: initial;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    font-stretch: condensed;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #333333;
+    padding:0;
+    border: 0;
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+    
+    /* object-fit: contain; */
+  }
+
+.COMING-SOON {
+    width: 203px;
+    height: 70px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    font-stretch: condensed;
+    letter-spacing: 2.5px;
+    text-align: center;
+    color: #ff6600;
+  }
+
+.SERVICE-FEE {
+    /* width: 72px; */
+    height: 18px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: condensed;
+    letter-spacing: -0.6px;
+    text-align: center;
+    color: #ff6600;
+    text-transform: uppercase;
+  }
+
+.layer {
+    /* width: 66px;
+    height: 27px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    /* text-align: center; */
+    color: #424242;
+}
+
+.layer-20 {
+    /* width: 66px;
+    height: 27px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    /* font-weight: bold; */
+    letter-spacing: 0.5px;
+    /* text-align: center; */
+    color: #424242;
+}
+
+.layer-20-bold {
+    /* width: 66px;
+    height: 27px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    /* font-weight: bold; */
+    letter-spacing: 0.5px;
+    /* text-align: center; */
+    color: #424242;
+    font-weight: 900;
+}
+
+.FROM {
+    width: 73px;
+    height: 29px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    /* text-align: center; */
+    color: #6c7a89;
+    padding-left:10.5px;
+}
+
+.TO {
+    width: 73px;
+    height: 29px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    /* text-align: center; */
+    color: #6c7a89;
+    /* padding-left:10.5px; */
+}
+
+
+.Total-Amount {
+    /* width: 142.2px; */
+    /* height: 24px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: condensed;
+    /* letter-spacing: 1.3px; */
+    /* text-align: center; */
+    color: #ff6600;
+    /* margin: 18px 0px; */
+    margin-right: 60px;
+  }
+
+.LINE-ITEM-BACKGROUND {
+    /* width: 329px; */
+    /* height: 173px; */
+    margin-left:12px;
+    margin-right:12px;
+    padding-top:10px;
+    padding-bottom:0px;
+
+    background-color: #ffe0b2;
+    box-shadow: inset 0 -1px 3px 0 rgba(0, 0, 0, 0.38);
+    border: dotted 1px #ff9933;
+  }
+
+.to-padded {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;    
+}
+
+.img_sendarrow {
+    /* width: auto; */
+    height: 29px;
+    margin-right: 0.65rem;
+    /* object-fit: fill; */
+    /* background-size: 50%; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Send-Money-via {
+    /* width: 118px;
+    height: 24px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    font-stretch: condensed;
+    letter-spacing: -0.7px;
+    /* text-align: center; */
+    color: #6c7a89;
+  }
+
+.CONFIRM-TEXT {
+    /* width: 94px;
+    height: 24px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #6c7a89;
+    text-transform: uppercase;
+  }
+
+.Border {
+    margin-left:12px;
+    margin-right:12px;
+    padding-top:10px;
+    padding-bottom:0px;
+    box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    border: dotted 1px #ff9933;
+  }
+
+.confirmation-text {
+    /* width: 116px;
+    height: 14px; */
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    font-stretch: condensed;
+    letter-spacing: 0.8px;
+    /* text-align: center; */
+    color: #6c7a89;
+  }
+
+.transaction-details-confirm-text {
+    min-height: 33px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.7px;
+    word-wrap: break-word;
+    /* text-align: center; */
+    color: #424242;
+}
+
+.receipt-transaction-details {
+    /* width: 62.4px; */
+    height: 14px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 12px;
+    font-stretch: condensed;
+    text-align: center;
+    color: #6c7a89;
+}
+
+.comingsoon {
+    background-image: '../images/img-comingsoon.svg';
+    width: 323px;
+    height: 97px;
+    object-fit: contain;
+  }
+
+.SUMMARY-RECEIVE-MONEY-VIA {
+    /* width: 106px; */
+    height: 36px;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: regular;
+    letter-spacing: 0.9px;
+    text-align: left;
+    color: #424242;
+    text-transform: uppercase;
+  }
+
+.TITLE-UNDERLINE {
+    /* min-height: 6px; */
+    /* min-width:100%; */
+    width: 100%;
+    
+    /* object-fit: cover; */
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+/*override margin on form group*/
+.form-group {
+    margin-bottom: 0;
+}
+
+@media (min-width: 586px) and (max-width: 889px){
+    .header-cliqq-back-button{
+        margin: 17px 0 0 0;
+    }
+}
+
+@media( min-width : 320px ) and (max-width: 585px){
+    .board-header{
+        width: 90%;
+        margin: 0px auto;
+        height: auto !important;
+        /* height: 500px; */
+        /* background: #fff;  */
+        /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
+    }
+
+    /* .header-cliqq-back-button{
+        height: 31px;
+        margin: 13.5px 0 0 0;
+        width: 100%;
+    } */
+
+    .header-cliqq-logo {
+        width: 100%;
+    }
+
+    .INSTRUCTIONS{
+        font-size:12px;
+        letter-spacing: -0.4px
+    }
+
+    .valid-until {
+        margin-left:0.1rem;
+    }
+}
+
+@media( min-width:280px ) and ( max-width: 424px) {
+    .Total-Amount{
+        margin-right:0;
+    }
+
+    .transaction-details-confirm-text{
+        font-size: 23px;
+    }
+
+    .SERVICE-FEE {
+        font-size: 13px;
+    }
+
+    .layer {
+        font-size: large;
+    }
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-transform: uppercase;
+    font-family: 'Roboto Regular', sans-serif;
+  }
+::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'Roboto Regular', sans-serif;
+    text-transform: uppercase;  
+    opacity: 1;  
+}
+:-ms-input-placeholder { /* IE 10+ */
+    text-transform: uppercase;
+    font-family: 'Roboto Regular', sans-serif;
+}
+:-moz-placeholder { /* Firefox 18- */
+    text-transform: uppercase; 
+    opacity: 1;
+    font-family: 'Roboto Regular', sans-serif;   
+}

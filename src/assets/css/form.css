@@ -1,0 +1,64 @@
+.tab-content .tab-pane{
+    padding-top: 20px;
+}
+
+.alert {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+/*  
+.ng-valid[required], .ng-valid.required  {
+  border-right: 5px solid #42A948; /* green */
+/*
+} 
+.ng-invalid:not(form)  {
+  border-right: 5px solid #a94442; /* red */
+/* 
+}
+*/
+.form-control:focus {
+  border-color: rgb(236, 136, 48);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.label.label-default {
+  padding: 0.5em 0.0em 0.5em;
+  background-color: #B6B6B6;
+  color: #6c7a89;
+  
+}
+
+.control-label.full-width.with-indent {
+  padding-left: 1.2em;
+  text-align: left;
+  margin-bottom: 10px;
+  width: 100%;
+  /* color: black; */
+  color: #424242;
+}
+
+.slightly-large {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: condensed;
+  letter-spacing: 1.3px;
+  text-align: center;
+  color: #ff6600;
+}
+
+.centered {
+  text-align: center;
+}
+
+.tab-content .header-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-left: -15px;
+}
+
+.form-control[disabled] {
+  background-color: #FFF3E0;
+}
