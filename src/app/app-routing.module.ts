@@ -10,7 +10,6 @@ import { TransactionSummaryComponent }              from './transaction/transact
 /* workflow guards */
 import { WorkflowGuard }        from './workflow/workflow-guard.service';
 import { WorkflowService }      from './workflow/workflow.service';
-import { SignupFormComponent } from './signup-form/signup-form.component';
 
 export const appRoutes: Routes = [
     // 1st Route
@@ -46,10 +45,6 @@ export const appRoutes: Routes = [
       component: TransactionSummaryComponent, 
       // canActivate: [WorkflowGuard]
     }, 
-    { path: 'signup',  
-      component: SignupFormComponent, 
-      // canActivate: [WorkflowGuard]
-    },  
     { path: '', redirectTo: '/sendMoney', pathMatch:'full' },    
     { path: '**', component: TransactionAmountComponent }
 ];

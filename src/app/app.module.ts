@@ -1,4 +1,3 @@
-import { SignupFormComponent } from './signup-form/signup-form.component';
 import { amountValidator } from './transaction/amount-validator.directive';
 import { LoaderService } from './loader/loader.service';
 import { CashInCenterService }  from './cash-in-center/cash-in-center.service';
@@ -61,7 +60,6 @@ import { ContactValidatorDirective } from './contact-validator.directive';
       LoaderComponent,
       amountValidator,
       ContactValidatorDirective,
-      SignupFormComponent
   ],
   imports: [
       BrowserModule,
