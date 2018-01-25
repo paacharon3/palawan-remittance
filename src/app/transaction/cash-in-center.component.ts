@@ -96,6 +96,7 @@ export class CashInCenterComponent implements OnInit {
                 }
             }).catch( err => {
                 console.log("Error in trying to get remco list: ",err);
+                //activate an error div to show error in getting remco list
             });
     }
 
@@ -137,7 +138,7 @@ export class CashInCenterComponent implements OnInit {
         if(this.selectedCashInCenter != null){
             this.selectedCashInCenter.serviceFee = null;
             this.amount = newAmount;
-            this.remittanceService.getServiceFee(this.selectedCashInCenter, this.transaction)
+            this.remittanceService.getServiceFeeForNewAmount(this.selectedCashInCenter, newAmount)
             .then( newServiceFee =>{
                 this.selectedCashInCenter.serviceFee = +newServiceFee;
             }).catch( err => {
@@ -152,7 +153,7 @@ export class CashInCenterComponent implements OnInit {
             console.log("recomputing for a new amount : ", newAmount);
             for(let remco of this.cashInCenters){
                 remco.serviceFee = null;
-                this.remittanceService.getServiceFee(remco, this.transaction)
+                this.remittanceService.getServiceFeeForNewAmount(remco, newAmount)
                 .then( newServiceFee =>{
                     remco.serviceFee = +newServiceFee;
                 }).catch( err => {
