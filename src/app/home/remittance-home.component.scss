@@ -1,0 +1,114 @@
+/* Color palette */
+$greyish-brown: #424242;
+$lipstick: #e11c24;
+
+
+/* Text styles */
+
+@mixin PIN-NUMBER {
+  font-family: Roboto;
+  font-size: 60px;
+  letter-spacing: 2.3px;
+  text-align: center;
+  color: #ff6600;
+}
+
+@mixin NUMERICAL-KEYBOARD {
+  font-family: Roboto;
+  font-size: 45px;
+  letter-spacing: 1.8px;
+  text-align: center;
+  color: #212121;
+}
+
+@mixin Input-Amount {
+  font-family: Roboto;
+  font-size: 35px;
+  font-weight: bold;
+  font-stretch: condensed;
+  letter-spacing: 3px;
+  text-align: center;
+  color: $greyish-brown;
+}
+
+@mixin MOBILE-NUMBER-INPUT {
+  font-family: Roboto;
+  font-size: 35px;
+  font-stretch: condensed;
+  letter-spacing: 3.5px;
+  text-align: center;
+  color: #000000;
+}
+
+@mixin Pera-Padala-Text {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  // text-align: center;
+  color: $lipstick;
+}
+
+@mixin Pera-Padala-2 {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: $lipstick;
+}
+
+@mixin BILL-TITLE {
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2.8px;
+  text-align: center;
+  color: #000000;
+}
+
+@mixin HOMEPAGE-BUTTON-TITLE {
+  font-family: Roboto;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: left;
+  color: #242424;
+}
+
+
+.Pera-Padala {
+  @include Pera-Padala-Text()
+}
+
+.Pera-Padala-2 {
+  @include Pera-Padala-2()
+}
+
+@media (min-width: 576px) { 
+  .Pera-Padala-Text{
+    font-size: medium;
+  }
+  .Pera-Padala-2{
+    font-size: small;
+  } 
+}
+
+.home-transaction-button-container {
+  max-height: 96px;
+  margin: 0.8rem 1.5rem 0;
+  width:100%
+}
+
+.home-transaction-button {
+  max-height: 96px;
+  width: 100%;
+}
+
+.mommy-d{
+  margin-left:0.35rem;
+}
+
+.home-img-happy {
+  margin: 0.8rem 0;
+  width:100%;
+}
