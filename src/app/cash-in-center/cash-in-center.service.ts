@@ -1,65 +1,64 @@
 import { Observable } from 'rxjs/Observable';
 import { RemittanceCenter } from './../remittance-center/remittance-center.component';
 import { CashInCenter } from './cash-in-center';
-import { AuthJsonResponse } from './../service/transaction.service';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams }        from '@angular/common/http';
 import { CASHINCENTERS } from './mock-cash-in-centers';
 import 'rxjs/add/operator/toPromise';
 import { environment }       from './../../environments/environment';
 import { LoaderService }                         from './../loader/loader.service';
+import { AuthBearerService, AuthJsonResponse } from '../service/auth-bearer.service';
 
 @Injectable()
 export class CashInCenterService {  
     private remittanceCenters: {
         remcos: RemittanceCenter[]
     }
-
     
     constructor(private http: HttpClient,
-                private loaderService: LoaderService){ 
+                private loaderService: LoaderService,
+                private authBearerService: AuthBearerService){ 
         
     }
     
-    
-    getAuthToken(): Promise<string> {
+    // getAuthToken(): Promise<string> {
         
-        let myPromise : Promise<CashInCenter[]>;
-        let resultToken;
+    //     let myPromise : Promise<CashInCenter[]>;
+    //     let resultToken;
 
-        const authRequestBody = 
-        'client_id=remittance-switch&'+
-        'client_secret=remittance-switch-secret&'+
-        'response_type=token&'+
-        'grant_type=client_credentials';
+    //     const authRequestBody = 
+    //     'client_id=remittance-switch&'+
+    //     'client_secret=remittance-switch-secret&'+
+    //     'response_type=token&'+
+    //     'grant_type=client_credentials';
     
-        const authUrl = environment.authAPI;
+    //     const authUrl = environment.authAPI;
 
-        console.log("getting bearer auth...");
-        return this.http.post<AuthJsonResponse>(authUrl, authRequestBody , {
-            headers: new HttpHeaders()
-            .set('Content-Type', 'application/x-www-form-urlencoded'),
-            observe: 'response' })
-        .toPromise()
-        .then(
-            resp => resp.body['access_token'],
+    //     console.log("getting bearer auth...");
+    //     return this.http.post<AuthJsonResponse>(authUrl, authRequestBody , {
+    //         headers: new HttpHeaders()
+    //         .set('Content-Type', 'application/x-www-form-urlencoded'),
+    //         observe: 'response' })
+    //     .toPromise()
+    //     .then(
+    //         resp => resp.body['access_token'],
 
-            err => {
-                console.log("Cannot get auth token, reverting to previous page");
-                this.hideLoader();
-            }
-        ).catch( err => {
-            console.log("Cannot get auth token, reverting to previous page",err);
-            this.hideLoader();
-        });
-    }
+    //         err => {
+    //             console.log("Cannot get auth token, reverting to previous page");
+    //             this.hideLoader();
+    //         }
+    //     ).catch( err => {
+    //         console.log("Cannot get auth token, reverting to previous page",err);
+    //         this.hideLoader();
+    //     });
+    // }
 
     getRemco(): Promise<CashInCenter[]> {
         this.showLoader();
         const getRemittanceCentersUrl = environment.getRemittanceCentersAPI
         let resultToken;
         let promise = new Promise<CashInCenter[]>((resolve,reject) => {
-            this.getAuthToken().then(token => 
+            this.authBearerService.getAuthToken().then(token => 
                 {
                     resultToken = token
                     return this.http.get(getRemittanceCentersUrl, {
@@ -86,17 +85,19 @@ export class CashInCenterService {
                                     remco.isAvailable = false;
                                 }
                                 centers.push(remco);
-                                console.log("centers size is : " + centers);
+                                console.log("centers size is : " + centers.toString());
                            })
                            this.hideLoader();
                            resolve(centers);                           
                         },
                         msg => {//error
                             console.log("Error in 2nd api call (getting remco)");
+                            this.hideLoader();
                             reject(msg);
                         }
                     ).catch( err => {
                             console.log("Error encountered on getting list of remcos: ",err)
+                            this.hideLoader();
                         });
                 });
             })
@@ -114,3 +115,4 @@ export class CashInCenterService {
         this.loaderService.hide();
     }
 }
+
