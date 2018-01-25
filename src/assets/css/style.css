@@ -121,7 +121,7 @@
     font-size: large;
     font-weight: bold;
     letter-spacing: 0.5px;
-    text-align: center;
+    /* text-align: center; */
     color: #424242;
 }
 
@@ -517,6 +517,10 @@
     margin-bottom: 0;
 }
 
+.error-from-request {
+    margin-top: 1rem;
+}
+
 @media (min-width: 586px) and (max-width: 889px){
     .header-cliqq-back-button{
         margin: 17px 0 0 0;
@@ -553,6 +557,16 @@
     }
 }
 
+@media (min-width: 992px) { 
+    .SERVICE-FEE {
+        font-size: x-large;
+    }
+
+    .service-fee-amount {
+        font-size: x-large;
+    }
+}
+
 @media( min-width:280px ) and ( max-width: 424px) {
     .Total-Amount{
         margin-right:0;
@@ -563,11 +577,11 @@
     }
 
     .SERVICE-FEE {
-        font-size: 13px;
+        font-size: small;
     }
 
     .layer {
-        font-size: large;
+        font-size: smaller;
     }
 }
 

@@ -18,7 +18,7 @@
 }
 
 .board > div.board-inner{
-    background: #fafafa url(http://subtlepatterns.com/patterns/geometry2.png);
+    background: #fafafa url(//subtlepatterns.com/patterns/geometry2.png);
     background-size: 30%;
 }
 
@@ -227,4 +227,10 @@ li.active span.round-tabs.five{
         padding:12px 20px;
     }
 
+}
+
+@media (min-width: 1200px) { 
+    .board {
+        max-width: 25%;
+    }
 }
