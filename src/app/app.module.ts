@@ -1,13 +1,8 @@
-import { amountValidator } from './transaction/amount-validator.directive';
-import { LoaderService } from './loader/loader.service';
-import { CashInCenterService }  from './cash-in-center/cash-in-center.service';
-import { WorkflowService }      from './workflow/workflow.service';
-import { TransactionService }   from './service/transaction.service';
+/* App Root */
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormControl, FormGroup }      from '@angular/forms';
 import { HttpClientModule }                         from '@angular/common/http';
-/* App Root */
 import { AppComponent }                             from './app.component';
 // import { NavbarComponent }      from './navbar/navbar.component'
 
@@ -17,6 +12,8 @@ import { CashInCenterComponent }                    from './transaction/cash-in-
 import { TransactionDetailComponent }               from './transaction/transaction-detail.component';
 import { TransactionConfirmationComponent }         from './transaction/transaction-confirmation.component';
 import { TransactionSummaryComponent }              from './transaction/transaction-summary.component';
+import { RemittanceHomeComponent }                  from './home/remittance-home.component';
+
 /* Material */
 import { MatCardModule }                            from "@angular/material";
 import { BrowserAnimationsModule }                  from "@angular/platform-browser/animations";
@@ -34,8 +31,11 @@ import { AppRoutingModule }                         from './app-routing.module';
 
 /* Shared Service */
 import { FormDataService }                          from './data/formData.service';
-
 import { NgxBarcodeModule }                         from 'ngx-barcode';
+import { LoaderComponent }                          from './loader/loader.component';
+import { AuthBearerService }                        from './service/auth-bearer.service';
+import { LoaderService }                            from './loader/loader.service';
+import { WorkflowService }                          from './workflow/workflow.service';
 
 /* interceptors */
 import { HTTP_INTERCEPTORS }                        from '@angular/common/http';
@@ -43,8 +43,13 @@ import { TransactionServiceInterceptor }            from './service/transaction-
 
 /* Remittance Service */
 import { RemittanceService }                        from './remittance-center/remittance.service';
-import { LoaderComponent }                          from './loader/loader.component';
-import { ContactValidatorDirective } from './contact-validator.directive';
+import { ContactValidatorDirective }                from './contact-validator.directive';
+import { CashInCenterService }  from './cash-in-center/cash-in-center.service';
+import { TransactionService }   from './service/transaction.service';
+
+/* Validators */
+import { amountValidator } from './transaction/amount-validator.directive';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +65,7 @@ import { ContactValidatorDirective } from './contact-validator.directive';
       LoaderComponent,
       amountValidator,
       ContactValidatorDirective,
+      RemittanceHomeComponent
   ],
   imports: [
       BrowserModule,
@@ -80,6 +86,7 @@ import { ContactValidatorDirective } from './contact-validator.directive';
       { provide: RemittanceService, useClass: RemittanceService },
       { provide: CashInCenterService, useClass: CashInCenterService },
       { provide: LoaderService, useClass: LoaderService },
+      { provide: AuthBearerService, useClass: AuthBearerService }
     ],
   bootstrap: [AppComponent]
 })
