@@ -8,8 +8,9 @@ import { TransactionConfirmationComponent }         from './transaction/transact
 import { TransactionSummaryComponent }              from './transaction/transaction-summary.component';
 
 /* workflow guards */
-import { WorkflowGuard }        from './workflow/workflow-guard.service';
-import { WorkflowService }      from './workflow/workflow.service';
+import { WorkflowGuard }                            from './workflow/workflow-guard.service';
+import { WorkflowService }                          from './workflow/workflow.service';
+import { RemittanceHomeComponent }                  from './home/remittance-home.component';
 
 export const appRoutes: Routes = [
     // 1st Route
@@ -23,6 +24,10 @@ export const appRoutes: Routes = [
     // 5th Route
     // { path: '',   redirectTo: '/sendMoney', pathMatch: 'full' },
     // 6th Route
+    {
+      path: 'home',
+      component: RemittanceHomeComponent
+    },
     { path: 'sendMoney',    
       component: TransactionAmountComponent
     },
@@ -45,8 +50,8 @@ export const appRoutes: Routes = [
       component: TransactionSummaryComponent, 
       // canActivate: [WorkflowGuard]
     }, 
-    { path: '', redirectTo: '/sendMoney', pathMatch:'full' },    
-    { path: '**', component: TransactionAmountComponent }
+    { path: '', redirectTo: '/home', pathMatch:'full' },    
+    { path: '**', component: RemittanceHomeComponent }
 ];
 
 @NgModule({
