@@ -26,7 +26,8 @@ export class amountValidator implements Validator {
         // console.log("what is amountValidator? : ", this.amountValidator);
         // console.log("Validating : ",control.value);
         // console.log("against limit : ", maxAmount);
-        let regexp = new RegExp('^(\\d{1,4})(\\.\\d{1,2}){0,1}$');
+        // let regexp = new RegExp('^(\\d{1,4})(\\.\\d{1,2}){0,1}$');
+        let regexp = new RegExp('^([1-9])(\\d{0,3})(\\.\\d{1,2}){0,1}$');
         let validAmountRegexTest = regexp.test(control.value);
         if(!validAmountRegexTest){
             console.log("Not a valid value")
@@ -36,7 +37,7 @@ export class amountValidator implements Validator {
         } else if(control.value > maxAmount){
             console.log("amount cannot be greater than {maxAmount}!");
             return { 
-                'contactValidator': { value: control.value }
+                'maxAmountExceeded': { value: control.value }
             };
         } else {
             return null;

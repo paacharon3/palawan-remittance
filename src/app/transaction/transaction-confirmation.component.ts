@@ -15,7 +15,9 @@ export class TransactionConfirmationComponent implements OnInit {
     transaction: Transaction;
     form: any;
     instructionText = 'Kindly confirm the information below'
-    
+    totalAmount: number
+    errorFromRequest: string;
+    showErrorFromRequest = false;
     constructor(private router: Router, 
         private formDataService: FormDataService,
         private transactionService: TransactionService
@@ -23,6 +25,7 @@ export class TransactionConfirmationComponent implements OnInit {
 
     ngOnInit(){
         this.transaction = this.formDataService.getTransactionData();
+        this.totalAmount = (+this.transaction.amount) + (+this.transaction.serviceFee)
     }
 
     save(form: any): boolean {
@@ -44,6 +47,22 @@ export class TransactionConfirmationComponent implements OnInit {
 
     goToNext(form: any): void {
         this.formDataService.confirmTransaction(this.transaction);
-        this.transactionService.buildAndSendRequest(this.transaction);
+        this.transactionService.sendCashOutRequest(this.transaction)
+            .then(
+                resp => {
+                    console.log("promise success, transaction created. forwarding to barcode page");
+                    this.router.navigate(['/summary']);
+                },
+                msg => { //error
+                    console.log("Failed to create transaction, errorFromRequest : ", msg);
+                    this.errorFromRequest = msg.msg;
+                    console.log("Error Request is : ", this.errorFromRequest)
+                    this.showErrorFromRequest = true;
+                }
+           ).catch(
+               err => {
+                   console.log("promise failed. transaction was not created");
+               }
+           );
     }
 }

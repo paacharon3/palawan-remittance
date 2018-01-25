@@ -115,7 +115,7 @@
                             <p class="confirmation-text">TOTAL AMOUNT&#58; </p>
                         </div>
                         <div class="col-3">
-                            <p class="layer-20-bold"> &#8369;{{ (transaction.amount + transaction.serviceFee) | number:'.2-2'}} </p>
+                            <p class="layer-20-bold"> &#8369;{{ totalAmount | number:'.2-2'}} </p>
                         </div>
             
                 </div>
@@ -137,7 +137,16 @@
                 <!-- </div> -->
             <!-- </div> -->
         </div>
-        
+        <div class="transparent-border error-from-request" *ngIf="showErrorFromRequest">
+            <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                    <strong> {{ errorFromRequest }} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        </div>
+
+
         <div class="form-group text-center space-20">
             <!-- <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(transactionConfirmationForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button> -->
             <!-- button width:50%; -->

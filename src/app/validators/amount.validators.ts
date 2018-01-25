@@ -15,7 +15,7 @@ export class AmountValidators {
 
     static cannotContainMultiDecimal(control: AbstractControl) : ValidationErrors | null {
         // console.log("AmountValidators : ", control.value);
-        let regexp = new RegExp('^(\\d{1,4})(\\.\\d{1,2}){0,1}$');
+        let regexp = new RegExp('^([1-9])(\\d{0,3})(\\.\\d{1,2}){0,1}$');
         let regexp2 = new RegExp('^(0-9){1,4}$');
         const maxAmount = environment.maxTransactionAmount;
         let formControlValue = control.value as string

@@ -40,7 +40,6 @@
                             id="amount" 
                             name="amount" 
                             placeholder="0.00" 
-                            maxlength="4"
                             [(ngModel)]="transaction.amount"
                             value="{{ transaction.amount }}"
                             (blur)="amount.valid ? recomputeServiceFeeAll(transaction.amount) : ''"
@@ -52,9 +51,15 @@
                             >
                     </div>
                     <div class="alert alert-danger" *ngIf="!amount.valid && amount.touched" style="margin:0 1rem 0 1rem">
-                        {{ amount.errors | json }}
+                        <!-- {{ amount.errors | json }} -->
                         
-                        Amount must be less than 2500
+                        <div *ngIf="amount.errors.invalidFormat || amount.errors.min">
+                                Please enter a valid amount
+                        </div>
+                        <div *ngIf="amount.errors.maxAmountExceeded">
+                            Amount must be less than 2500                            
+                        </div>
+                        
                     </div>
                 </div>
                 <!-- <div class="alert alert-danger" 
